@@ -13,6 +13,7 @@
   --black1: #14151c;
   --black2: #242526;
   --white: #ffffff;
+  --whitegray: #ddd;
   --white2: #f1f2f5;
   --border-rad-round: 50%;
   --border-rad-card: 8px;
@@ -89,6 +90,7 @@ section {
   transition: all var(--anim-mid);
   z-index: 997;
   background: rgba(42, 44, 57, 0.9);
+  border-radius: 0 0 var(--border-rad-big) var(--border-rad-big);
 }
 #header.header-transparent {
   background: transparent;
@@ -305,6 +307,181 @@ section {
 }
 .navbar-mobile .dropdown > .dropdown-active {
   display: block;
+}
+
+/*--------------------------------------------------------------
+# Sections General
+--------------------------------------------------------------*/
+section {
+  padding: 60px 0;
+  overflow: hidden;
+}
+.section-title {
+  text-align: center;
+  padding-bottom: 30px;
+}
+.section-title h2 {
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+  color: var(--black2);
+}
+.section-title h2::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 120px;
+  height: 1px;
+  background: var(--whitegray);
+  bottom: 1px;
+  left: calc(50% - 60px);
+}
+.section-title h2::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: var(--primary);
+  bottom: 0;
+  left: calc(50% - 20px);
+}
+.section-title p {
+  margin-bottom: 0;
+}
+
+
+
+
+/*--------------------------------------------------------------
+# Contact Section
+--------------------------------------------------------------*/
+
+.contact .map {
+  margin-bottom: 40px;
+}
+.contact .map iframe {
+  border-radius: var(--border-rad-big);
+  width: 100%;
+  height: 400px;
+}
+.contact .info {
+  width: 100%;
+  background: var(--white);
+}
+
+.contact .info i {
+  font-size: 20px;
+  color: var(--primary);
+  float: left;
+  width: 44px;
+  height: 44px;
+  background: #ffecde;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+}
+.contact .info h4 {
+  padding: 0 0 0 60px;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: var(--black2);
+}
+.contact .info p {
+  padding: 0 0 0 60px;
+  margin-bottom: 0;
+  font-size: 14px;
+  color: var(--black1);
+}
+.contact .info .email,
+.contact .info .phone {
+  margin-top: 40px;
+}
+.contact .info .email:hover i,
+.contact .info .address:hover i,
+.contact .info .phone:hover i {
+  background: var(--primary);
+  color: var(--white);
+}
+.contact .php-email-form {
+  width: 100%;
+  background: var(--white);
+}
+.contact .php-email-form .form-group {
+  padding-bottom: 8px;
+}
+.contact .php-email-form .error-message {
+  display: none;
+  color: var(--white);
+  background: #ed3c0d;
+  text-align: left;
+  padding: 15px;
+  font-weight: 600;
+}
+.contact .php-email-form .error-message br+br {
+  margin-top: 25px;
+}
+.contact .php-email-form .sent-message {
+  display: none;
+  color: var(--white);
+  background: #18d26e;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+}
+.contact .php-email-form .loading {
+  display: none;
+  background: var(--white);
+  text-align: center;
+  padding: 15px;
+}
+.contact .php-email-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid #18d26e;
+  border-top-color: #eee;
+  animation: animate-loading 1s linear infinite;
+}
+.contact .php-email-form input,
+.contact .php-email-form textarea {
+  border-radius: var(--border-rad-card);
+  box-shadow: none;
+  font-size: 14px;
+}
+.contact .php-email-form input {
+  height: 44px;
+}
+.contact .php-email-form textarea {
+  padding: 10px 12px;
+}
+.contact .php-email-form button[type=submit] {
+  background: var(--primary);
+  border: 0;
+  padding: 10px 24px;
+  color: var(--white);
+  transition: 0.4s;
+  border-radius: 50px;
+}
+.contact .php-email-form button[type=submit]:hover {
+  filter: brightness(1.2);
+}
+@keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /*--------------------------------------------------------------

@@ -1,30 +1,58 @@
 [
   {
-    "name": "",
-    "description": "",
-    "size": "",
-    "image": "",
-    "price": ""
+    "id" : "1",
+    "item": "Pepper Shaker",
+    "sizes": ["S","M", "L"],
+    "image": "images/peppershaker.jpg",
+    "price": 24.00
   },
   {
-    "name": "",
-    "description": "",
-    "size": "",
-    "image": "",
-    "price": ""
+    "id" : "2",
+    "item": "Hot Pressed Coconut Oil",
+    "sizes": ["S","M", "L"],
+    "image": "images/hotpressedcoconutoil.jpg",
+    "price": 24.00
   },
   {
-    "name": "",
-    "description": "",
-    "size": "",
-    "image": "",
-    "price": ""
+    "id" : "3",
+    "item": "Money Saver",
+    "sizes": ["S","M", "L"],
+    "image": "images/moneysaver.jpg",
+    "price": 24.00
   },
   {
-    "name": "",
-    "description": "",
-    "size": "",
-    "image": "",
-    "price": ""
+    "id" : "4",
+    "item": "Soap Dish",
+    "sizes": ["S","M", "L"],
+    "image": "images/soapdish.jpg",
+    "price": 24.00
+  },
+  {
+    "id" : "5",
+    "item": "Cup With Handle",
+    "sizes": ["S","M", "L"],
+    "image": "images/cupwithhandle.jpg",
+    "price": 24.00
+  },
+  {
+    "id" : "6",
+    "item": "Zigzag Edged Bowl",
+    "sizes": ["S","M", "L"],
+    "image": "images/zigzagedgebowl.jpg",
+    "price": 24.00
+  },
+  {
+    "id" : "7",
+    "item": "Bluetooth Speaker",
+    "sizes": ["S","M", "L"],
+    "image": "images/speaker.jpg",
+    "price": 24.00
+  },
+  {
+    "id" : "8",
+    "item": "Bowl With Lid",
+    "sizes": ["S","M", "L"],
+    "image": "images/bowlwithcover2.jpg",
+    "price": 24.00
   }
 ]

@@ -1,16 +1,5 @@
-/**
-* Template Name: Selecao
-* Updated: Sep 18 2023 with Bootstrap v5.3.2
-* Template URL: https://bootstrapmade.com/selecao-bootstrap-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 (function() {
   "use strict";
-
-  /**
-   * Easy selector helper function
-   */
   const select = (el, all = false) => {
     el = el.trim()
     if (all) {
@@ -19,10 +8,6 @@
       return document.querySelector(el)
     }
   }
-
-  /**
-   * Easy event listener function
-   */
   const on = (type, el, listener, all = false) => {
     let selectEl = select(el, all)
     if (selectEl) {
@@ -33,17 +18,9 @@
       }
     }
   }
-
-  /**
-   * Easy on scroll event listener 
-   */
   const onscroll = (el, listener) => {
     el.addEventListener('scroll', listener)
   }
-
-  /**
-   * Navbar links active state on scroll
-   */
   let navbarlinks = select('#navbar .scrollto', true)
   const navbarlinksActive = () => {
     let position = window.scrollY + 200
@@ -60,10 +37,6 @@
   }
   window.addEventListener('load', navbarlinksActive)
   onscroll(document, navbarlinksActive)
-
-  /**
-   * Scrolls to an element with header offset
-   */
   const scrollto = (el) => {
     let header = select('#header')
     let offset = header.offsetHeight
@@ -74,10 +47,6 @@
       behavior: 'smooth'
     })
   }
-
-  /**
-   * Toggle .header-scrolled class to #header when page is scrolled
-   */
   let selectHeader = select('#header')
   if (selectHeader) {
     const headerScrolled = () => {
@@ -90,12 +59,9 @@
     window.addEventListener('load', headerScrolled)
     onscroll(document, headerScrolled)
   }
-
-  /**
-   * Back to top button
-   */
   let backtotop = select('.back-to-top')
-  if (backtotop) {
+  let cartbtn = select(".cart-btn");
+  if (backtotop || cartbtn) {
     const toggleBacktotop = () => {
       if (window.scrollY > 100) {
         backtotop.classList.add('active')
@@ -103,8 +69,17 @@
         backtotop.classList.remove('active')
       }
     }
-    window.addEventListener('load', toggleBacktotop)
-    onscroll(document, toggleBacktotop)
+    const togglecartbtn = () => {
+      if (window.scrollY > 100) {
+        cartbtn.classList.add("active");
+      } else {
+        cartbtn.classList.remove("active");
+      }
+    }
+    window.addEventListener('load', toggleBacktotop);
+    onscroll(document, toggleBacktotop);
+    window.addEventListener("load", togglecartbtn);
+    onscroll(document, togglecartbtn);
   }
 
   /**
@@ -143,7 +118,6 @@
       scrollto(this.hash)
     }
   }, true)
-
   /**
    * Scroll with ofset on page load with hash links in the url
    */
@@ -191,63 +165,40 @@
   const portfolioLightbox = GLightbox({
     selector: '.portfolio-lightbox'
   });
-
-  /**
-   * Portfolio details slider
-   */
-  new Swiper('.portfolio-details-slider', {
-    speed: 400,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
-  });
-
-  /**
-   * Testimonials slider
-   */
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 20
-      },
-
-      1200: {
-        slidesPerView: 3,
-        spaceBetween: 20
-      }
-    }
-  });
-
-  /**
-   * Animation on scroll
-   */
-  window.addEventListener('load', () => {
-    AOS.init({
-      duration: 1000,
-      easing: 'ease-in-out',
-      once: true,
-      mirror: false
-    })
-  });
-
 })()
+document.querySelectorAll('.remove-button').forEach((button) => {
+  button.addEventListener('click', (e) => {
+    const itemId = e.target.getAttribute('data-item-id');
+    const cart = JSON.parse(localStorage.getItem('cart'));
+    const updatedCart = cart.filter((item) => (item.id) !== itemId);
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    location.reload();
+  });
+});
+document.querySelectorAll('.update-button').forEach((button) => {
+  button.addEventListener('click', (e) => {
+    const itemId = e.target.getAttribute('data-items-id');
+    const size = document.getElementById(`${itemId}-size`).value;
+    const quantity = parseInt(document.getElementById(`${itemId}-quantity`).value);
+    const cart = JSON.parse(localStorage.getItem('cart'));
+    const updatedCart = cart.map((item) => {
+      if (item.id === itemId) {
+        item.size = size;
+        item.quantity = quantity;
+        alert(`${item.item} has been updated`);
+      }
+      return item;
+    });
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    location.reload();
+    e.preventDefault();
+  });
+});
+function emptyCart(){
+  localStorage.clear('cart');
+  location.reload();
+}
+const cart = JSON.parse(localStorage.getItem('cart')) || [];
+const cartItemCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+document.getElementById('cart-count').innerText = cartItemCount;
+const total = cart.reduce((acc, current) => acc + current.price * current.quantity, 0);

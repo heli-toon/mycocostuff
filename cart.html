@@ -12,7 +12,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
 
-    <title>mycocostuff_gh</title>
+    <title>mycocostuff_gh | Cart</title>
   </head>
   <body>
     <header id="header" class="fixed-top d-flex align-items-center header-transparent">
@@ -24,15 +24,55 @@
           <ul>
             <li><a class="nav-link scrollto" href="/">Home</a></li>
             <li><a class="nav-link scrollto" href="buy.html">Products</a></li>
-            <li><a class="nav-link scrollto" href="#showcase">Showcase</a></li>
-            <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li>
-            <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+            <li><a class="nav-link scrollto" href="/#showcase">Showcase</a></li>
+            <li><a class="nav-link scrollto" href="/#contact">Contact</a></li>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
       </div>
     </header>
-
+    <section class="checkout">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="section-title">
+                <h2 class="section-title">Cart</h2>
+                <p>You have <span id="cart-numbered"></span> items in your Cart</p>
+              </div>
+            </div>
+            <div class="cart-items">
+            </div>
+            <div class="mt-5">
+              <button type="reset" class="btn" id="emptyCart" onclick="emptyCart()"><i class="bi-trash"></i> Empty Cart</button>
+            </div>
+            <hr />
+            <div class="my-4">
+              <form action="" method="post" role="form" class="d-flex flex-column gap-4 submit-cart">
+                <h3>Submit your cart</h3>
+                <div class="row">
+                  <input type="text" title="name" placeholder="Name" required>
+                </div>
+                <div class="row">
+                  <input type="text" title="email" placeholder="Email" required>
+                </div>
+                <div class="row">
+                  <input type="text" title="location" placeholder="Location" minlength="2" required>
+                </div>
+                <div class="row">
+                  <textarea name="" cols="20" rows="6" maxlength="225" title="Description" placeholder="Description"></textarea>
+                </div>
+                <div class="row">
+                  <div class="d-flex align-items-center justify-content-center">
+                    <button type="submit" class="btn" title="Submit"><i class="bi bi-send"></i> Submit</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <footer id="footer">
         <div class="container">
           <h3>mycocostuff_gh</h3>
@@ -53,5 +93,10 @@
           </div>
         </div>
     </footer>
+    <a title="Back to Top" href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <a href="/cart.html" class="cart-btn d-flex align-items-center justify-content-center" title="Items in Cart">
+      <span class="xl" id="cart-count"></span>
+    </a>
   </body>
+  <script src="js/main.js"></script>
 </html>

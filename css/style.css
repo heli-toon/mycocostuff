@@ -797,11 +797,8 @@ section {
   }
 }
 @keyframes collapse {
-  0%{
-    opacity: 1;
-  }100%{
-    opacity: 0;
-  }
+  0%{opacity: 1}
+  100%{opacity: 0}
 }
 .cart-btn:hover{
   color: var(--primary) !important;
@@ -819,4 +816,98 @@ section {
     opacity: 1;
     transform: translateY(0);
   }
+}
+section.checkout{
+  text-align: center;
+}
+.cart-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.cart-item {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background-color: var(--white2);
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.cart-item-image {
+  width: 100px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+.cart-item-details {
+  flex-grow: 1;
+  text-align: left;
+}
+.cart-item-name {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.cart-item-price {
+  color: var(--black2);
+  margin-bottom: 10px;
+  filter: brightness(3.5);
+}
+.cart-item-options {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.cart-item-options label {margin-right: 10px}
+.cart-item-options select {
+  padding: 5px;
+  background: var(--whitegray);
+  color: var(--black);
+  border-radius: 4px;
+  outline: none;
+  border: 0;
+}
+.cart-item-quantity {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.cart-item-quantity label {margin-right: 10px}
+.cart-item-quantity input {
+  width: 50px;
+  padding: 5px;
+  background: var(--whitegray);
+  color: var(--black);
+  border: none;
+  border-radius: 4px;
+}
+.cart-item-actions {
+  display: flex;
+  align-items: center;
+}
+.cart-item-actions button {
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.submit-cart input,
+.submit-cart textarea{
+  background: var(--whitegray);
+  border: none;
+  outline: 0;
+  color: var(--black);
+  padding: 1rem;
+  border-radius: 0.375rem;
 }

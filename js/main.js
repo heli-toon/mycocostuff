@@ -102,7 +102,7 @@
   }, true)
 
   /**
-   * Scrool with ofset on links with a class name .scrollto
+   * Scroll with offset on links with a class name .scrollto
    */
   on('click', '.scrollto', function(e) {
     if (select(this.hash)) {
@@ -127,43 +127,6 @@
         scrollto(window.location.hash)
       }
     }
-  });
-
-  /**
-   * Porfolio isotope and filter
-   */
-  window.addEventListener('load', () => {
-    let portfolioContainer = select('.portfolio-container');
-    if (portfolioContainer) {
-      let portfolioIsotope = new Isotope(portfolioContainer, {
-        itemSelector: '.portfolio-item',
-      });
-
-      let portfolioFilters = select('#portfolio-flters li', true);
-
-      on('click', '#portfolio-flters li', function(e) {
-        e.preventDefault();
-        portfolioFilters.forEach(function(el) {
-          el.classList.remove('filter-active');
-        });
-        this.classList.add('filter-active');
-
-        portfolioIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-        portfolioIsotope.on('arrangeComplete', function() {
-          AOS.refresh()
-        });
-      }, true);
-    }
-
-  });
-
-  /**
-   * Initiate portfolio lightbox 
-   */
-  const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
   });
 })()
 document.querySelectorAll('.remove-button').forEach((button) => {
@@ -201,4 +164,35 @@ function emptyCart(){
 const cart = JSON.parse(localStorage.getItem('cart')) || [];
 const cartItemCount = cart.reduce((acc, item) => acc + item.quantity, 0);
 document.getElementById('cart-count').innerText = cartItemCount;
+document.getElementById('cart-numbered').innerText = cartItemCount;
+const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
 const total = cart.reduce((acc, current) => acc + current.price * current.quantity, 0);
+
+cartItems.forEach((item) => {
+  const cartItemHTML = `
+    <div class="cart-item">
+      <img src="${item.image}" alt="Item" class="cart-item-image" />
+      <div class="cart-item-details">
+        <h3 class="cart-item-name">${item.item}</h3>
+        <p class="cart-item-price">€${item.price.toFixed(2)}</p>
+        <div class="cart-item-options">
+          <label for="${item.id}-size">Size:</label>
+          <select id="${item.id}-size" value="${item.sizes}">
+            <option value="M">Medium</option>
+            <option value="L">Large</option>
+          </select>
+        </div>
+        <div class="cart-item-quantity">
+          <label for="${item.id}-quantity">Quantity:</label>
+          <input type="number" id="${item.id}-quantity" value="${item.quantity}" min="1" />
+        </div>
+      </div>
+      <div class="cart-item-actions">
+        <button type="button" class="update-button btn" data-items-id="${item.id}">Update</button>
+        <button type="button" class="remove-button btn" data-item-id="${item.id}">Remove</button>
+      </div>
+    </div>
+  `;
+  
+  document.querySelector('.cart-items').innerHTML += cartItemHTML;
+});

@@ -54,5 +54,26 @@
     "sizes": ["S","M", "L"],
     "image": "images/bowlwithcover2.jpg",
     "price": 24.00
+  },
+  {
+    "id" : "9",
+    "item": "Purse",
+    "sizes": ["S","M", "L"],
+    "image": "images/purse2.jpg",
+    "price": 24.00
+  },
+  {
+    "id" : "10",
+    "item": "Spoons",
+    "sizes": ["S","M", "L"],
+    "image": "images/spoons.jpg",
+    "price": 24.00
+  },
+  {
+    "id" : "11",
+    "item": "Container",
+    "sizes": ["S","M", "L"],
+    "image": "images/containerflattop.jpg",
+    "price": 24.00
   }
 ]

@@ -174,7 +174,7 @@ cartItems.forEach((item) => {
       <img src="${item.image}" alt="Item" class="cart-item-image" />
       <div class="cart-item-details">
         <h3 class="cart-item-name">${item.item}</h3>
-        <p class="cart-item-price">€${item.price.toFixed(2)}</p>
+        <p class="cart-item-price">GH¢${item.price.toFixed(2)}</p>
         <div class="cart-item-options">
           <label for="${item.id}-size">Size:</label>
           <select id="${item.id}-size" value="${item.sizes}">
@@ -195,4 +195,53 @@ cartItems.forEach((item) => {
   `;
   
   document.querySelector('.cart-items').innerHTML += cartItemHTML;
+});
+document.querySelectorAll('.remove-button').forEach((button) => {
+  button.addEventListener('click', (e) => {
+    const itemId = e.target.getAttribute('data-item-id');
+    const cart = JSON.parse(localStorage.getItem('cart'));
+    const updatedCart = cart.filter((item) => (item.id) !== itemId);
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    location.reload();
+  });
+});
+document.querySelectorAll('.update-button').forEach((button) => {
+  button.addEventListener('click', (e) => {
+    const itemId = e.target.getAttribute('data-items-id');
+    const size = document.getElementById(`${itemId}-size`).value;
+    const quantity = parseInt(document.getElementById(`${itemId}-quantity`).value);
+    const cart = JSON.parse(localStorage.getItem('cart'));
+    const updatedCart = cart.map((item) => {
+      if (item.id === itemId) {
+        item.size = size;
+        item.quantity = quantity;
+        alert(`${item.item} has been updated`);
+      }
+      return item;
+    });
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    location.reload();
+    e.preventDefault();
+  });
+});
+function emptyCart(){
+  localStorage.clear('cart');
+  location.reload();
+}
+const cartData = localStorage.getItem('cart');
+const cartObject = JSON.parse(cartData);
+
+let formattedCart = '';
+for (const item in cartObject){
+  formattedCart += `Item: ${cartObject[item].item}\n`;
+  formattedCart += `Quantity: ${cartObject[item].quantity}\n`;
+  formattedCart += `Price: ${cartObject[item].price}\n`;
+  formattedCart += `Size: ${cartObject[item].sizes}\n`;
+  formattedCart += `------------------------------\n`;
+}
+document.getElementById('cartTextarea').value = formattedCart;
+
+const submitCart = document.getElementById('submitCart');
+submitCart.addEventListener('click', ()=>{
+  localStorage.clear('cart');
 });

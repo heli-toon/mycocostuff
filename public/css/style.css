@@ -911,3 +911,10 @@ section.checkout{
   padding: 1rem;
   border-radius: 0.375rem;
 }
+textarea::-webkit-scrollbar {
+  width: 0.5rem;
+}
+textarea::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: var(--border-rad-card);
+}

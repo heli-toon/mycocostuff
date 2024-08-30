@@ -48,23 +48,26 @@
             </div>
             <hr />
             <div class="my-4">
-              <form action="" method="post" role="form" class="d-flex flex-column gap-4 submit-cart">
+              <form action="https://formspree.io/f/mrbzadqo" method="post" role="form" class="d-flex flex-column gap-4 submit-cart">
                 <h3>Submit your cart</h3>
                 <div class="row">
-                  <input type="text" title="name" placeholder="Name" required>
+                  <input type="text" title="name" placeholder="Name" name="name" required>
                 </div>
                 <div class="row">
-                  <input type="text" title="email" placeholder="Email" required>
+                  <input type="text" title="email" placeholder="Email" name="email" required>
                 </div>
                 <div class="row">
-                  <input type="text" title="location" placeholder="Location" minlength="2" required>
+                  <input type="tel" title="phone" placeholder="Phone Number" minlength="8" maxlength="20" required>
                 </div>
                 <div class="row">
-                  <textarea name="" cols="20" rows="6" maxlength="225" title="Description" placeholder="Description"></textarea>
+                  <input type="text" title="location" placeholder="Location" minlength="2" maxlength="200" required>
+                </div>
+                <div class="row">
+                  <textarea id="cartTextarea" name="Comments" cols="20" rows="6" maxlength="2000" title="Comments" placeholder="Comments"></textarea>
                 </div>
                 <div class="row">
                   <div class="d-flex align-items-center justify-content-center">
-                    <button type="submit" class="btn" title="Submit"><i class="bi bi-send"></i> Submit</button>
+                    <button type="submit" class="btn" title="Submit" id="submitCart"><i class="bi bi-send"></i> Submit</button>
                   </div>
                 </div>
               </form>

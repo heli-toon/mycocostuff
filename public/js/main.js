@@ -237,7 +237,7 @@ for (const item in cartObject){
   formattedCart += `Quantity: ${cartObject[item].quantity}\n`;
   formattedCart += `Price: ${cartObject[item].price}\n`;
   formattedCart += `Size: ${cartObject[item].sizes}\n`;
-  formattedCart += `------------------------------\n`;
+  formattedCart += `-------------------------------\n`;
 }
 document.getElementById('cartTextarea').value = formattedCart;
 

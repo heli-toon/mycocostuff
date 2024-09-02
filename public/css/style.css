@@ -81,10 +81,6 @@ a:hover {color: var(--primary2)}
   font-family: "Luckie Bluchi";
   font-weight: 100;
 }
-section {
-  padding: 60px 0;
-  overflow: hidden;
-}
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
@@ -318,7 +314,7 @@ section {
   background: url("../images/cocoback.jpg") center center;
   background-size: cover;
   position: relative;
-  padding: 120px 0 60px;
+  padding: 0;
 }
 .hero-fullscreen:before {
   content: "";
@@ -342,7 +338,7 @@ section {
 }
 .hero-fullscreen .btn-get-started {
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 600;
   display: inline-block;
   padding: 10px 28px;
   border-radius: 4px;
@@ -357,39 +353,78 @@ section {
     font-size: 18px;
     margin-bottom: 30px;
   }
-  .hero-fullscreen .btn-get-started{font-size: 14px}
 }
-
+.hero-waves-container{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+.hero-waves {
+  display: block;
+  width: 100%;
+  height: 60px;
+  position: relative;
+}
+.wave1 use {
+  animation: move-forever1 10s linear infinite;
+  animation-delay: -2s;
+}
+.wave2 use {
+  animation: move-forever2 8s linear infinite;
+  animation-delay: -2s;
+}
+.wave3 use {
+  animation: move-forever3 6s linear infinite;
+  animation-delay: -2s;
+}
+@keyframes move-forever1 {
+  0% {
+    transform: translate(85px, 0%);
+  }
+  100% {
+    transform: translate(-90px, 0%);
+  }
+}
+@keyframes move-forever2 {
+  0% {
+    transform: translate(-90px, 0%);
+  }
+  100% {
+    transform: translate(85px, 0%);
+  }
+}
+@keyframes move-forever3 {
+  0% {
+    transform: translate(-90px, 0%);
+  }
+  100% {
+    transform: translate(85px, 0%);
+  }
+}
 .featured-services .service-item {
   position: relative;
   height: 100%;
   margin-bottom: 20px;
 }
-
-.featured-services .service-item .icon {
-  margin-right: 20px;
-}
-
+.featured-services .service-item .icon {margin-right: 20px}
 .featured-services .service-item .icon i {
-  color: #001f8d;
+  color: var(--primary);
   font-size: 48px;
   transition: 0.3s;
 }
-
 .featured-services .service-item:hover .icon {
-  background: #fff;
+  background: ;
 }
 .featured-services .service-item:hover .icon i {
-  color: var(--color-primary);
+  color: var(--primary);
 }
 .featured-services .service-item .title {
   font-weight: 700;
   margin-bottom: 10px;
   font-size: 20px;
-  color: var(--color-secondary);
+  color: var(--black2);
   transition: 0.3s;
 }
-
 .featured-services .service-item .description {
   font-size: 15px;
   color: var(--black2);
@@ -398,7 +433,7 @@ section {
 .featured-services .service-item .readmore {
   display: flex;
   align-items: center;
-  color: var(--color-secondary);
+  color: var(--black2);
   transition: 0.3s;
   font-weight: 700;
   font-size: 14px;
@@ -407,7 +442,7 @@ section {
 .featured-services .service-item:hover .title,
 .featured-services .service-item:hover .readmore,
 .featured-services .service-item:hover .icon i {
-  color: var(--color-primary);
+  filter: brightness(1.2);
 }
 /* BUY PRODUCTS */
 .products .products-item {

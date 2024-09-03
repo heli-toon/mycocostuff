@@ -401,29 +401,19 @@ section {
     transform: translate(85px, 0%);
   }
 }
-.about {
-  padding-top: 80px;
-}
-
 .about .content h3 {
   font-weight: 600;
   font-size: 26px;
 }
-
 .about .content ul {
   list-style: none;
   padding: 0;
 }
-
 .about .content ul li {
   padding-left: 28px;
   position: relative;
 }
-
-.about .content ul li+li {
-  margin-top: 10px;
-}
-
+.about .content ul li+li {margin-top: 10px}
 .about .content ul i {
   position: absolute;
   left: 0;
@@ -432,11 +422,7 @@ section {
   color: var(--primary);
   line-height: 1;
 }
-
-.about .content p:last-child {
-  margin-bottom: 0;
-}
-
+.about .content p:last-child {margin-bottom: 0}
 .about .content .btn-learn-more {
   font-weight: 600;
   letter-spacing: 1px;
@@ -450,11 +436,86 @@ section {
   margin-top: 6px;
   border: 2px solid var(--primary);
 }
-
 .about .content .btn-learn-more:hover {
   background: var(--primary);
   color: var(--white);
   text-decoration: none;
+}
+.products .products-item {
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  z-index: 1;
+}
+.products .products-item::before {
+  content: "";
+  background: var(--primary);
+  position: absolute;
+  left: 100%;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: all ease-in-out 0.3s;
+  z-index: 2;
+}
+.products .products-item img {
+  transition: 0.3s;
+}
+.products .products-item .products-links {
+  opacity: 0;
+  left: 0;
+  right: 0;
+  top: calc(50% - 36px);
+  text-align: center;
+  z-index: 3;
+  position: absolute;
+  transition: all ease-in-out 0.3s;
+}
+.products .products-item .products-links a {
+  color: var(--white);
+  line-height: 0;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  display: inline-block;
+  transition: 0.3s;
+}
+.products .products-item .products-links a i {
+  font-size: 32px;
+  line-height: 0;
+}
+.products .products-item .products-links a:hover {color: var(--black)}
+.products .products-item .products-info {
+  opacity: 0;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 3;
+  transition: all ease-in-out 0.3s;
+}
+.products .products-item .products-info h4 {
+  font-size: 20px;
+  color: var(--black) !important;
+  font-weight: 600;
+}
+.products .products-item .products-info p {
+  color: var(--white);
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.products .products-item:hover::before {
+  left: 0;
+}
+.products .products-item:hover .products-links {
+  opacity: 1;
+  top: calc(50% - 18px);
+}
+.products .products-item:hover .products-info {
+  opacity: 1;
+  bottom: 0;
 }
 .featured-services .service-item {
   position: relative;

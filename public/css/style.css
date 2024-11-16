@@ -93,6 +93,7 @@ a:hover {color: var(--primary2)}
 }
 #header.header-transparent {background: transparent}
 #header.header-scrolled {background: rgba(42, 44, 57, 0.9)}
+
 #header .logo h1 {
   font-size: 28px;
   margin: 0;
@@ -386,20 +387,12 @@ section {
   }
 }
 @keyframes move-forever2 {
-  0% {
-    transform: translate(-90px, 0%);
-  }
-  100% {
-    transform: translate(85px, 0%);
-  }
+  0% {transform: translate(-90px, 0%)}
+  100% {transform: translate(85px, 0%)}
 }
 @keyframes move-forever3 {
-  0% {
-    transform: translate(-90px, 0%);
-  }
-  100% {
-    transform: translate(85px, 0%);
-  }
+  0% {transform: translate(-90px, 0%)}
+  100% {transform: translate(85px, 0%)}
 }
 .about .content h3 {
   font-weight: 600;

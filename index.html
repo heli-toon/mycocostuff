@@ -24,7 +24,7 @@
           <ul>
             <li><a class="nav-link scrollto active" href="#about">About</a></li>
             <li><a class="nav-link scrollto" href="buy.html">Products</a></li>
-            <li><a class="nav-link scrollto " href="#showcase">Showcase</a></li>
+            <li><a class="nav-link scrollto " href="#products">Showcase</a></li>
             <li><a class="nav-link scrollto" href="cart.html">Checkout</a></li>
             <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           </ul>
@@ -352,4 +352,39 @@
   </body>
   <script type="module" src="./map.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      try {
+        // Fetch the data from the JSON file
+        const response = await fetch('data.json');
+        const data = await response.json();
+        
+        // Randomly select 9 items from the data
+        const shuffled = data.sort(() => 0.5 - Math.random());
+        const selectedItems = shuffled.slice(0, 8);
+        
+        // Generate HTML for selected items
+        const productsContainer = document.querySelector('.products-container');
+        productsContainer.innerHTML = ''; // Clear any existing content
+  
+        selectedItems.forEach(item => {
+          const itemHTML = `
+            <div class="col-lg-3 col-md-6 products-item filter-app">
+              <img src="${item.image}" class="img-fluid" alt="${item.item}">
+              <div class="products-links">
+                <a href="${item.image}" title="${item.item}" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="/buy.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+              <div class="products-info">
+                <h4>${item.item}</h4>
+              </div>
+            </div>
+          `;
+          productsContainer.innerHTML += itemHTML;
+        });
+      } catch (error) {
+        console.error('Error fetching and processing data:', error);
+      }
+    });
+  </script>
 </html>

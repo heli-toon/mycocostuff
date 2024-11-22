@@ -92,8 +92,9 @@ a:hover {color: var(--primary2)}
   border-radius: 0 0 var(--border-rad-big) var(--border-rad-big);
 }
 #header.header-transparent {background: transparent}
+#header.header-transparent .navbar a.nav-link {color: var(--black1)!important}
+#header.header-transparent.header-scrolled .navbar a.nav-link {color: var(--white)!important}
 #header.header-scrolled {background: rgba(42, 44, 57, 0.9)}
-
 #header .logo h1 {
   font-size: 28px;
   margin: 0;
@@ -486,7 +487,7 @@ section {
 }
 .products .products-item::before {
   content: "";
-  background: var(--primary);
+  background: rgb(246, 112, 13, 0.7);
   position: absolute;
   left: 100%;
   right: 0;
@@ -643,11 +644,17 @@ section {
 /*--------------------------------------------------------------
 # Contact Section
 --------------------------------------------------------------*/
-.contact .map {margin-bottom: 40px}
-.contact .map iframe {
+.contact{
+  position: relative;
+}
+.contact .map {
+  margin-bottom: 40px;
   border-radius: var(--border-rad-big);
   width: 100%;
   height: 400px;
+  background: var(--whitegray);
+  z-index: -1;
+  position: absolute;
 }
 .contact .info {
   width: 100%;

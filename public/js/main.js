@@ -18,9 +18,7 @@
       }
     }
   }
-  const onscroll = (el, listener) => {
-    el.addEventListener('scroll', listener)
-  }
+  const onscroll = (el, listener) => {el.addEventListener('scroll', listener)}
   let navbarlinks = select('#navbar .scrollto', true)
   const navbarlinksActive = () => {
     let position = window.scrollY + 200
@@ -237,11 +235,9 @@ for (const item in cartObject){
   formattedCart += `Quantity: ${cartObject[item].quantity}\n`;
   formattedCart += `Price: ${cartObject[item].price}\n`;
   formattedCart += `Size: ${cartObject[item].sizes}\n`;
-  formattedCart += `-------------------------------\n`;
+  formattedCart += `--------------------------------\n`;
 }
 document.getElementById('cartTextarea').value = formattedCart;
 
 const submitCart = document.getElementById('submitCart');
-submitCart.addEventListener('click', ()=>{
-  localStorage.clear('cart');
-});
+submitCart.addEventListener('click', ()=>{localStorage.clear('cart')});

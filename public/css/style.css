@@ -92,7 +92,7 @@ a:hover {color: var(--primary2)}
   border-radius: 0 0 var(--border-rad-big) var(--border-rad-big);
 }
 #header.header-transparent {background: transparent}
-#header.header-transparent .navbar a.nav-link {color: var(--black1)!important}
+#header.header-transparent .navbar a.nav-link {color: var(--black)!important}
 #header.header-transparent.header-scrolled .navbar a.nav-link {color: var(--white)!important}
 #header.header-scrolled {background: rgba(42, 44, 57, 0.9)}
 #header .logo h1 {
@@ -209,6 +209,7 @@ a:hover {color: var(--primary2)}
 @media (max-width: 991px) {
   .mobile-nav-toggle {display: block}
   .navbar ul {display: none}
+  #header.header-transparent.header-scrolled .navbar a.nav-link {color: var(--black)!important}
 }
 .navbar-mobile {
   position: fixed;
@@ -269,6 +270,17 @@ a:hover {color: var(--primary2)}
 .navbar-mobile .dropdown ul .active:hover,
 .navbar-mobile .dropdown ul li:hover > a {color: var(--white)}
 .navbar-mobile .dropdown > .dropdown-active {display: block}
+.navbar .cart-icon{
+  font-size: large;
+  margin-left: 0 !important;
+}
+.navbar .badge-number {
+  position: absolute;
+  inset: -2px -5px auto auto;
+  font-weight: normal;
+  font-size: 12px;
+  padding: 3px 6px;
+}
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/

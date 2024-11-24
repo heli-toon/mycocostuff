@@ -155,13 +155,10 @@ document.querySelectorAll('.update-button').forEach((button) => {
     e.preventDefault();
   });
 });
-function emptyCart(){
-  localStorage.clear('cart');
-  location.reload();
-}
 const cart = JSON.parse(localStorage.getItem('cart')) || [];
 const cartItemCount = cart.reduce((acc, item) => acc + item.quantity, 0);
 document.getElementById('cart-count').innerText = cartItemCount;
+document.getElementById('badge-number').innerText = cartItemCount;
 document.getElementById('cart-numbered').innerText = cartItemCount;
 const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
 const total = cart.reduce((acc, current) => acc + current.price * current.quantity, 0);
@@ -235,9 +232,11 @@ for (const item in cartObject){
   formattedCart += `Quantity: ${cartObject[item].quantity}\n`;
   formattedCart += `Price: ${cartObject[item].price}\n`;
   formattedCart += `Size: ${cartObject[item].sizes}\n`;
-  formattedCart += `--------------------------------\n`;
+  formattedCart += `---------------------------------\n`;
 }
 document.getElementById('cartTextarea').value = formattedCart;
 
 const submitCart = document.getElementById('submitCart');
 submitCart.addEventListener('click', ()=>{localStorage.clear('cart')});
+
+window.onabort(alert("There are item in cart. Your items will be saved in your cart."))
